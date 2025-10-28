@@ -54,16 +54,34 @@ A modern web application built with Next.js, showcasing the latest web technolog
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run linting and formatting:
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your changes:
+
+   ```bash
+   git checkout -b my-feature-branch
+   ```
+
+3. Add upstream remote:
+
+   ```bash
+   git remote add upstream https://github.com/your-username/webtech-project.git
+   ```
+
+4. Before pushing your changes, pull the latest changes from upstream:
+
+   ```bash
+   git pull upstream main
+   ```
+
+5. Check for linting errors and format your code:
+
    ```bash
    bun lint
    bun format
    ```
-5. Commit your changes (pre-commit hooks will run automatically)
-6. Push to your branch and create a pull request
+
+6. Commit your changes and push to your branch.
+7. Create a pull request.
 
 ## Git Hooks
 
