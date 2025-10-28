@@ -9,7 +9,7 @@ A modern web application built with Next.js, showcasing the latest web technolog
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4
 - **Linting & Formatting**: Biome
-- **Package Manager**: pnpm
+- **Package Manager**: bun
 - **Git Hooks**: Husky (pre-commit hooks)
 
 ## Setup
@@ -24,24 +24,24 @@ A modern web application built with Next.js, showcasing the latest web technolog
 2. **Install dependencies**:
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. **Start the development server**:
 
    ```bash
-   pnpm dev
+   bun dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run linting with Biome
-- `pnpm format` - Format code with Biome
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun start` - Start production server
+- `bun lint` - Run linting with Biome
+- `bun format` - Format code with Biome
 
 ## Development Guidelines
 
@@ -59,8 +59,8 @@ A modern web application built with Next.js, showcasing the latest web technolog
 3. Make your changes
 4. Run linting and formatting:
    ```bash
-   pnpm lint
-   pnpm format
+   bun lint
+   bun format
    ```
 5. Commit your changes (pre-commit hooks will run automatically)
 6. Push to your branch and create a pull request
@@ -74,6 +74,6 @@ This project uses Husky for Git hooks. Pre-commit hooks will automatically run l
 Build the application for production:
 
 ```bash
-pnpm build
-pnpm start
+bun build
+bun start
 ```
