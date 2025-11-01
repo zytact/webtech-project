@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 const testimonials = [
   {
@@ -79,11 +79,11 @@ const AnimatedTestimonials = ({
   const baseRotate = (i: number) => `${((i * 7) % 16) - 8}deg`;
 
   return (
-    <div className="mx-auto w-full max-w-6xl px-4 py-8 font-sans antialiased md:px-8 lg:max-w-7xl lg:px-12">
+    <div className="mx-auto flex min-h-screen w-full max-w-7xl items-center px-4 py-8 font-sans antialiased md:px-8 lg:px-12">
       <div className="relative grid grid-cols-1 items-center gap-y-12 md:grid-cols-2 md:gap-x-20">
         {/* Image Section */}
         <div className="flex items-center justify-center">
-          <div className="relative h-[55vh] w-full max-w-md md:h-[60vh] md:max-w-lg lg:h-[70vh] lg:max-w-xl">
+          <div className="relative h-[60vh] w-full max-w-md md:h-[70vh] md:max-w-lg lg:h-[80vh] lg:max-w-xl">
             <AnimatePresence initial={false}>
               {testimonials.map((testimonial, index) => (
                 <motion.div
