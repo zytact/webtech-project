@@ -9,7 +9,7 @@ A modern web application built with Next.js, showcasing the latest web technolog
 - **Language**: TypeScript (strict mode)
 - **Styling**: Tailwind CSS v4
 - **Linting & Formatting**: Biome
-- **Package Manager**: pnpm
+- **Package Manager**: bun
 - **Git Hooks**: Husky (pre-commit hooks)
 
 ## Setup
@@ -24,24 +24,24 @@ A modern web application built with Next.js, showcasing the latest web technolog
 2. **Install dependencies**:
 
    ```bash
-   pnpm install
+   bun install
    ```
 
 3. **Start the development server**:
 
    ```bash
-   pnpm dev
+   bun dev
    ```
 
    Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Available Scripts
 
-- `pnpm dev` - Start development server
-- `pnpm build` - Build for production
-- `pnpm start` - Start production server
-- `pnpm lint` - Run linting with Biome
-- `pnpm format` - Format code with Biome
+- `bun dev` - Start development server
+- `bun build` - Build for production
+- `bun start` - Start production server
+- `bun lint` - Run linting with Biome
+- `bun format` - Format code with Biome
 
 ## Development Guidelines
 
@@ -54,16 +54,34 @@ A modern web application built with Next.js, showcasing the latest web technolog
 
 ## Contributing
 
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Run linting and formatting:
+1. Fork the repository and clone it to your local machine.
+2. Create a new branch for your changes:
+
    ```bash
-   pnpm lint
-   pnpm format
+   git checkout -b my-feature-branch
    ```
-5. Commit your changes (pre-commit hooks will run automatically)
-6. Push to your branch and create a pull request
+
+3. Add upstream remote:
+
+   ```bash
+   git remote add upstream https://github.com/your-username/webtech-project.git
+   ```
+
+4. Before pushing your changes, pull the latest changes from upstream:
+
+   ```bash
+   git pull upstream main
+   ```
+
+5. Check for linting errors and format your code:
+
+   ```bash
+   bun lint
+   bun format
+   ```
+
+6. Commit your changes and push to your branch.
+7. Create a pull request.
 
 ## Git Hooks
 
@@ -74,6 +92,6 @@ This project uses Husky for Git hooks. Pre-commit hooks will automatically run l
 Build the application for production:
 
 ```bash
-pnpm build
-pnpm start
+bun build
+bun start
 ```
