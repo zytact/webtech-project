@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { name: "Home", href: "/" },
   { name: "Events", href: "/events" },
   { name: "Examination", href: "/examination" },
+  { name: "Faculties", href: "/faculties" },
   { name: "Contact-Us", href: "/contact-us" },
 ] as const;
 
@@ -89,7 +90,6 @@ const Navbar1 = () => {
           </a>
         </motion.div>
 
-        {/* Mobile Menu Button */}
         <motion.button
           className="flex items-center md:hidden"
           onClick={toggleMenu}
@@ -99,7 +99,6 @@ const Navbar1 = () => {
         </motion.button>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
