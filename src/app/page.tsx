@@ -10,11 +10,11 @@ export default function Home() {
     <div>
       <ShuffleHero />
       <DemoOne />
-      
+
       <div className="mt-16 md:mt-24 lg:mt-28">
         <Testimonials />
       </div>
-      
+
       <div className="mt-16 md:mt-24 lg:mt-28">
         <DemoScrollFAQAccordion />
       </div>

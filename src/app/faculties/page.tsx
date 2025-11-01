@@ -1,3 +1,9 @@
+import { Component } from "@/components/ui/testimonial";
+
 export default function FacultiesPage() {
-  return <h1>Faculties</h1>;
+  return (
+    <div>
+      <Component />
+    </div>
+  );
 }
