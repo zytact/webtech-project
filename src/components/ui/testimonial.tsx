@@ -75,7 +75,6 @@ const AnimatedTestimonials = ({
 
   const isActive = (index: number) => index === active;
 
-  // Deterministic rotation per index to avoid SSR/client mismatches
   const baseRotate = (i: number) => `${((i * 7) % 16) - 8}deg`;
 
   return (
@@ -88,7 +87,6 @@ const AnimatedTestimonials = ({
               {testimonials.map((testimonial, index) => (
                 <motion.div
                   key={testimonial.src}
-                  // Animation properties reverted to the previous version.
                   initial={{
                     opacity: 0,
                     scale: 0.9,
