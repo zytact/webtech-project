@@ -30,7 +30,6 @@ const Navbar1 = () => {
         {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-8 md:flex">
           {NAV_LINKS.map((link) => {
-            const protectedLink = link.href !== "/"; // Home is public; others require sign-in
             return (
               <motion.div
                 key={link.name}
@@ -39,24 +38,12 @@ const Navbar1 = () => {
                 transition={{ duration: 0.3 }}
                 whileHover={{ scale: 1.05 }}
               >
-                {user || !protectedLink ? (
-                  <a
-                    href={link.href}
-                    className="font-medium text-gray-900 text-sm transition-colors hover:text-gray-600"
-                  >
-                    {link.name}
-                  </a>
-                ) : (
-                  <SignInButton mode="modal">
-                    <button
-                      type="button"
-                      title="Sign in to access"
-                      className="font-medium text-gray-900 text-sm transition-colors hover:text-gray-600"
-                    >
-                      {link.name}
-                    </button>
-                  </SignInButton>
-                )}
+                <a
+                  href={link.href}
+                  className="font-medium text-gray-900 text-sm transition-colors hover:text-gray-600"
+                >
+                  {link.name}
+                </a>
               </motion.div>
             );
           })}
@@ -115,7 +102,6 @@ const Navbar1 = () => {
 
             <div className="flex flex-col space-y-6">
               {NAV_LINKS.map((link, i) => {
-                const protectedLink = link.href !== "/"; // Home is public; others require sign-in
                 return (
                   <motion.div
                     key={link.name}
@@ -124,26 +110,13 @@ const Navbar1 = () => {
                     transition={{ delay: i * 0.1 + 0.1 }}
                     exit={{ opacity: 0, x: 20 }}
                   >
-                    {user || !protectedLink ? (
-                      <a
-                        href={link.href}
-                        className="font-medium text-base text-gray-900"
-                        onClick={toggleMenu}
-                      >
-                        {link.name}
-                      </a>
-                    ) : (
-                      <SignInButton mode="modal">
-                        <button
-                          type="button"
-                          className="font-medium text-base text-gray-900"
-                          onClick={toggleMenu}
-                          title="Sign in to access"
-                        >
-                          {link.name}
-                        </button>
-                      </SignInButton>
-                    )}
+                    <a
+                      href={link.href}
+                      className="font-medium text-base text-gray-900"
+                      onClick={toggleMenu}
+                    >
+                      {link.name}
+                    </a>
                   </motion.div>
                 );
               })}
