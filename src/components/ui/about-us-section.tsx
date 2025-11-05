@@ -78,7 +78,7 @@ export default function AboutUsSection() {
       ),
       title: "Facilities & Resources",
       description:
-        "Transform your living spaces with our expert interior design services. We blend functionality and aesthetics to create spaces that reflect your unique style and personality.",
+        "The department offers modern computer labs, high-speed internet, research centers, and well-equipped classrooms to foster hands-on learning and innovation.",
       position: "left",
     },
     {
@@ -88,7 +88,7 @@ export default function AboutUsSection() {
       ),
       title: "Placements",
       description:
-        "Make a lasting impression with stunning exterior designs that enhance curb appeal and create harmonious connections between architecture and landscape.",
+        "With strong industry collaborations and dedicated training programs, our students consistently secure placements in top tech companies and startups across diverse domains.",
       position: "left",
     },
     {
@@ -98,7 +98,7 @@ export default function AboutUsSection() {
       ),
       title: "Courses & Programs",
       description:
-        "Our innovative design process combines creativity with practicality, resulting in spaces that are both beautiful and functional for everyday living.",
+        "We offer undergraduate and postgraduate programs designed to blend core computing concepts with cutting-edge technologies like AI, Data Science, and Cybersecurity.",
       position: "left",
     },
     {
@@ -108,7 +108,7 @@ export default function AboutUsSection() {
       ),
       title: "Vision and Mission",
       description:
-        "Elevate your space with our curated decoration services. From color schemes to textiles and accessories, we perfect every detail to bring your vision to life.",
+        "Our vision is to produce competent IT professionals and researchers who contribute to technological advancement. Our mission is to deliver quality education, promote innovation, and encourage ethical practices.",
       position: "right",
     },
     {
@@ -118,7 +118,7 @@ export default function AboutUsSection() {
       ),
       title: "Reasearch Scholars",
       description:
-        "Our meticulous planning process ensures every project runs smoothly from concept to completion, with careful attention to timelines, budgets, and requirements.",
+        "Our research scholars engage in impactful work across areas such as Artificial Intelligence, Cloud Computing, Data Analytics, and Software Engineering.",
       position: "right",
     },
     {
@@ -128,7 +128,7 @@ export default function AboutUsSection() {
       ),
       title: "Staff Members",
       description:
-        "Watch your dream space come to life through our flawless execution. Our skilled team handles every aspect of implementation with precision and care.",
+        "The department is guided by experienced faculty members and dedicated technical staff committed to academic excellence and student development.",
       position: "right",
     },
   ];
@@ -220,10 +220,10 @@ export default function AboutUsSection() {
           className="mx-auto mb-16 max-w-2xl text-center text-[#202e44]/80"
           variants={itemVariants}
         >
-          We are a passionate team of designers and architects dedicated to
-          creating beautiful, functional spaces that inspire and elevate
-          everyday living. With attention to detail and commitment to
-          excellence, we transform visions into reality.
+          The Department of Information Technology focuses on creating skilled
+          professionals equipped with strong theoretical foundations and
+          practical expertise in computing, software development, and emerging
+          technologies.
         </motion.p>
 
         <div className="relative grid grid-cols-1 gap-8 md:grid-cols-3">
