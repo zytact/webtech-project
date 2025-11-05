@@ -1,9 +1,8 @@
 "use client";
 
+import { motion, useMotionValueEvent, useScroll } from "motion/react";
 import type React from "react";
 import { useEffect, useRef, useState } from "react";
-import { useMotionValueEvent, useScroll } from "motion/react";
-import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 
 export const StickyScroll = ({
