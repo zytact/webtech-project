@@ -72,7 +72,7 @@ const Navbar1 = () => {
           whileHover={{ scale: 1.05 }}
         >
           {user ? (
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           ) : (
             <SignInButton mode="modal">
               <button
