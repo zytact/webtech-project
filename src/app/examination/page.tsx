@@ -1,45 +1,149 @@
 "use client";
 
+import { motion } from "framer-motion";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
-import DownloadsSection from "@/components/examination/DownloadsSection";
-import RegistrationSection from "@/components/examination/RegistrationSection";
-import ResultsSection from "@/components/examination/ResultsSection";
 
-export default function ExaminationPage() {
-  const [activeTab, setActiveTab] = useState("downloads");
+import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
+export default function ExaminationLoginPage() {
+  const router = useRouter();
+  const [rollNumber, setRollNumber] = useState("");
+  const [dob, setDob] = useState("");
+  const [error, setError] = useState("");
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+
+    if (!rollNumber.trim() || !dob.trim()) {
+      setError("Please enter both Roll Number and DOB.");
+      return;
+    }
+
+    const dobRegex = /^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[0-2])\/\d{4}$/;
+    if (!dobRegex.test(dob)) {
+      setError("Please enter DOB as DD/MM/YYYY format only.");
+      return;
+    }
+
+    // ✅ Save data to sessionStorage for later authentication
+    sessionStorage.setItem("exam_auth", "true");
+    sessionStorage.setItem("exam_roll", rollNumber.trim());
+
+    router.push("/examination/main");
+  };
 
   return (
-    <div className="min-h-screen bg-gray-50 px-6 py-10">
-      <h1 className="mb-8 text-center font-bold text-4xl">EXAMINATIONS</h1>
-
-      {/* Tabs */}
-      <div className="mb-10 flex justify-center space-x-4">
-        {["results", "registration", "downloads"].map((tab) => (
-          <button
-            key={tab}
-            type="button" // ✅ explicitly specify button type
-            onClick={() => setActiveTab(tab)}
-            className={`rounded-full border-2 px-5 py-2 transition-all duration-300 ${
-              activeTab === tab
-                ? "border-blue-600 bg-blue-600 text-white"
-                : "border-blue-600 text-blue-600 hover:bg-blue-100"
-            }`}
+    <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-white p-6">
+      <motion.div
+        initial={{ opacity: 0, y: 12 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+        className="w-full max-w-6xl overflow-hidden rounded-3xl shadow-2xl"
+      >
+        <div className="flex flex-col md:flex-row">
+          {/* 🎓 Left Section */}
+          <motion.div
+            initial={{ x: -20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="flex items-center justify-center bg-gradient-to-b from-blue-600 to-blue-500 p-10 text-white md:w-1/2"
           >
-            {tab === "results"
-              ? "Results"
-              : tab === "registration"
-                ? "Exam Registration"
-                : "Downloads"}
-          </button>
-        ))}
-      </div>
+            <div className="w-full max-w-md">
+              <div className="flex flex-col items-center justify-center rounded-2xl bg-white p-8 shadow-md">
+                <Image
+                  src="/images/GU_Digital_Logo.jpg"
+                  alt="GU Digital Logo"
+                  width={200}
+                  height={200}
+                  className="mb-4 h-auto w-48 rounded-md object-contain"
+                  priority
+                />
+                <p className="text-center font-medium text-gray-600 text-sm">
+                  Gauhati University — IT Department
+                </p>
+              </div>
 
-      {/* Section Content */}
-      <div className="mx-auto max-w-5xl">
-        {activeTab === "downloads" && <DownloadsSection />}
-        {activeTab === "results" && <ResultsSection />}
-        {activeTab === "registration" && <RegistrationSection />}
-      </div>
+              <div className="mt-8 rounded-xl bg-blue-700 p-5 text-center">
+                <h1 className="font-bold text-3xl">Student Login</h1>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* 🧾 Right Section */}
+          <motion.div
+            initial={{ x: 20, opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.05 }}
+            className="flex items-center justify-center bg-white p-10 md:w-1/2"
+          >
+            <div className="w-full max-w-lg">
+              <Card className="shadow-none">
+                <CardContent className="p-8">
+                  <div className="mb-6 text-center">
+                    <h2 className="font-bold text-2xl text-blue-700 md:text-3xl">
+                      Sign in
+                    </h2>
+                    <p className="mt-2 text-gray-500 text-sm">
+                      Enter Roll Number and Date of Birth to continue
+                    </p>
+                  </div>
+
+                  <form onSubmit={handleSubmit} className="space-y-5">
+                    <div>
+                      <Label htmlFor="roll" className="text-gray-700">
+                        Roll Number
+                      </Label>
+                      <Input
+                        id="roll"
+                        type="number"
+                        value={rollNumber}
+                        onChange={(e) => setRollNumber(e.target.value)}
+                        placeholder="Enter your Roll Number"
+                        required
+                        className="py-3"
+                      />
+                    </div>
+
+                    <div>
+                      <Label htmlFor="dob" className="text-gray-700">
+                        Date of Birth (used as password)
+                      </Label>
+                      <Input
+                        id="dob"
+                        type="text"
+                        value={dob}
+                        onChange={(e) => setDob(e.target.value)}
+                        placeholder="DD/MM/YYYY"
+                        required
+                        className="py-3"
+                      />
+                    </div>
+
+                    {error && (
+                      <div className="text-center text-red-600 text-sm">
+                        {error}
+                      </div>
+                    )}
+
+                    <button
+                      type="submit"
+                      className="cssbuttons-io"
+                      aria-label="Login"
+                    >
+                      <span>Login</span>
+                    </button>
+                  </form>
+                </CardContent>
+              </Card>
+            </div>
+          </motion.div>
+        </div>
+      </motion.div>
     </div>
   );
 }
