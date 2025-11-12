@@ -31,7 +31,7 @@ const Navbar1 = () => {
         {/* Desktop Navigation */}
         <nav className="hidden items-center space-x-8 md:flex">
           {NAV_LINKS.map((link) => {
-            const protectedLink = link.href !== "/"; // Home is public; others require sign-in
+            const protectedLink = link.href === "/examination"; // Home is public; others require sign-in
             return (
               <motion.div
                 key={link.name}
@@ -72,7 +72,7 @@ const Navbar1 = () => {
           whileHover={{ scale: 1.05 }}
         >
           {user ? (
-            <UserButton afterSignOutUrl="/" />
+            <UserButton />
           ) : (
             <SignInButton mode="modal">
               <button
