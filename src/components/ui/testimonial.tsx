@@ -8,38 +8,38 @@ import React, { useEffect, useState } from "react";
 const testimonials = [
   {
     quote:
-      "Our curriculum blends research-led teaching with hands-on projects. Students graduate with the confidence to design and deploy real-world systems.",
-    name: "Dr. Ananya Sen",
-    designation: "Professor & Head, Department of IT",
-    src: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      "“The Supreme Commander of Camera Angles,” this HOD appears the moment a notebook opens, swooping in to click a photo “for reference” before anyone can blink. With the sacred ability to interrupt a lecture with “Wait—don't turn the page!”, he'll happily snatch your notes and take 17 dramatic shots of the same paragraph “just to be safe.”",
+    name: "Dr. Jitankan Paul",
+    designation: "Professor and HOD, Clicking Photographs",
+    src: "/images/uni_prof/prof_pic5d.png",
   },
   {
     quote:
-      "Our labs are continuously upgraded and aligned with industry tools, so students learn modern stacks and contribute to faculty research early.",
+      "Dr. Ananya Sen is an experienced academic leader with expertise in Data Science and Machine Learning. She guides departmental activities and mentors students in research and innovation.",
+    name: "Dr. Ananya Sen",
+    designation: "Professor, Information Systems",
+    src: "/images/uni_prof/prof_pic1c.png",
+  },
+  {
+    quote:
+      "Prof. Rahul Gupta specializes in Web Technologies and Software Engineering. He is passionate about teaching and helps students build strong practical skills in development.",
     name: "Prof. Rahul Gupta",
     designation: "Associate Professor, Computer Science",
-    src: "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    src: "/images/uni_prof/prof_pic2c.png",
   },
   {
     quote:
-      "We emphasize fundamentals alongside emerging areas like AI, data engineering, and cybersecurity—preparing graduates for both academia and industry.",
+      "Dr. Meera Das focuses on Database Management Systems and Cloud Computing. She is dedicated to student-centered teaching and encourages hands-on learning.",
     name: "Dr. Meera Das",
-    designation: "Assistant Professor, Electronics & Communication",
-    src: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1888&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    designation: "Assistant Professor, IT",
+    src: "/images/uni_prof/prof_pic3c.png",
   },
   {
     quote:
-      "Interdisciplinary collaboration is in our DNA. Our students co-author papers, build prototypes, and present at conferences with their mentors.",
+      "Prof. Arup Nath has expertise in Cybersecurity and Network Administration. He actively supports student projects and promotes secure technology practices.",
     name: "Prof. Arup Nath",
     designation: "Dean, Faculty of Technology",
-    src: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
-  },
-  {
-    quote:
-      "Beyond the classroom, our mentorship and alumni network open doors to internships, research internships, and competitive placements.",
-    name: "Dr. Nidhi Borah",
-    designation: "Lecturer, Information Systems",
-    src: "https://images.unsplash.com/photo-1557053910-d9eadeed1c58?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%D%3D",
+    src: "/images/uni_prof/prof_pic4c.png",
   },
 ];
 
@@ -74,7 +74,6 @@ const AnimatedTestimonials = ({
   }, [autoplay, handleNext]);
 
   const isActive = (index: number) => index === active;
-
   const baseRotate = (i: number) => `${((i * 7) % 16) - 8}deg`;
 
   return (
@@ -121,7 +120,7 @@ const AnimatedTestimonials = ({
           </div>
         </div>
 
-        {/* Text and Controls Section */}
+        {/* Text + Controls */}
         <div className="flex flex-col justify-center py-4">
           <AnimatePresence mode="wait">
             <motion.div
@@ -129,7 +128,6 @@ const AnimatedTestimonials = ({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              // Animation properties reverted to the previous version.
               transition={{ duration: 0.3, ease: "easeInOut" }}
               className="flex flex-col justify-between"
             >
@@ -146,6 +144,8 @@ const AnimatedTestimonials = ({
               </div>
             </motion.div>
           </AnimatePresence>
+
+          {/* Arrows */}
           <div className="flex gap-4 pt-12">
             <button
               type="button"
@@ -155,6 +155,7 @@ const AnimatedTestimonials = ({
             >
               <ArrowLeft className="group-hover:-translate-x-1 h-5 w-5 text-slate-800 transition-transform duration-300 dark:text-slate-300" />
             </button>
+
             <button
               type="button"
               onClick={handleNext}
@@ -170,43 +171,41 @@ const AnimatedTestimonials = ({
   );
 };
 
-// --- Demo Component ---
+// Demo Component
 function AnimatedTestimonialsDemo() {
   return <AnimatedTestimonials testimonials={testimonials} />;
 }
 
-// --- Main App Component ---
-// This is the root of our application.
+// Main Export Component
 export function Component() {
   return (
     <div className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-slate-50 dark:bg-slate-950">
-      {/* Animated grid background with 10% opacity */}
+      {/* Animated Background Grid */}
       <style>
         {`
-                @keyframes animate-grid {
-                    0% { background-position: 0% 50%; }
-                    100% { background-position: 100% 50%; }
-                }
-                .animated-grid {
-                    width: 200%;
-                    height: 200%;
-                    /* Grid color for light and dark mode */
-                    background-image: 
-                        linear-gradient(to right, #e2e8f0 1px, transparent 1px), 
-                        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
-                    background-size: 3rem 3rem;
-                    animation: animate-grid 40s linear infinite alternate;
-                }
-                .dark .animated-grid {
-                    background-image: 
-                        linear-gradient(to right, #1e293b 1px, transparent 1px), 
-                        linear-gradient(to bottom, #1e293b 1px, transparent 1px);
-                }
-            `}
+          @keyframes animate-grid {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
+          }
+          .animated-grid {
+            width: 200%;
+            height: 200%;
+            background-image: 
+              linear-gradient(to right, #e2e8f0 1px, transparent 1px), 
+              linear-gradient(to bottom, #e2e8f0 1px, transparent 1px);
+            background-size: 3rem 3rem;
+            animation: animate-grid 40s linear infinite alternate;
+          }
+          .dark .animated-grid {
+            background-image: 
+              linear-gradient(to right, #1e293b 1px, transparent 1px), 
+              linear-gradient(to bottom, #1e293b 1px, transparent 1px);
+          }
+        `}
       </style>
+
       <div className="animated-grid -translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 opacity-10" />
 
-      {/* Content */}
       <div className="z-10">
         <AnimatedTestimonialsDemo />
       </div>
