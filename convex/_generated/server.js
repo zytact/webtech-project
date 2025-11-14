@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 /**
  * Generated utilities for implementing server-side Convex query and mutation functions.
  *
@@ -9,7 +8,7 @@
  * @module
  */
 // biome-ignore-all lint: generated file
-/** biome-ignore-all assist/source/organizeImports: generated file */
+// biome-ignore-all assist/source/organizeImports: generated file
 
 import {
   actionGeneric,
