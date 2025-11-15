@@ -8,6 +8,11 @@
  * @module
  */
 // biome-ignore-all lint: generated file
+// biome-ignore-all assist/source/organizeImports: generated file
+
+import type * as documents from "../documents.js";
+import type * as exams from "../exams.js";
+import type * as students from "../students.js";
 
 import type {
   ApiFromModules,
@@ -15,7 +20,11 @@ import type {
   FunctionReference,
 } from "convex/server";
 
-declare const fullApi: ApiFromModules<{}>;
+declare const fullApi: ApiFromModules<{
+  documents: typeof documents;
+  exams: typeof exams;
+  students: typeof students;
+}>;
 
 /**
  * A utility for referencing Convex functions in your app's public API.

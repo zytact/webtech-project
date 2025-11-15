@@ -7,7 +7,6 @@
  * To regenerate, run `npx convex dev`.
  * @module
  */
-// biome-ignore-all lint: generated file
 
 import { anyApi, componentsGeneric } from "convex/server";
 

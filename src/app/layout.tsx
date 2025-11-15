@@ -1,8 +1,9 @@
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 import { Navbar1 } from "@/components/ui/navbar-1";
+import { ConvexClientProvider } from "./ConvexClientProvider";
+import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +32,7 @@ export default function RootLayout({
           className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         >
           <Navbar1 />
-          {children}
+          <ConvexClientProvider>{children}</ConvexClientProvider>
         </body>
       </html>
     </ClerkProvider>

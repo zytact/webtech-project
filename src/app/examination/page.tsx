@@ -1,9 +1,11 @@
 "use client";
 
+import { useQuery } from "convex/react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { api } from "@/../convex/_generated/api";
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -15,7 +17,20 @@ export default function ExaminationLoginPage() {
   const [dob, setDob] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const student = useQuery(
+    api.students.getByRollNo,
+    rollNumber.trim() ? { rollNo: rollNumber.trim() } : "skip",
+  );
+
+  const sha256 = async (input: string): Promise<string> => {
+    const data = new TextEncoder().encode(input);
+    const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+    return Array.from(new Uint8Array(hashBuffer))
+      .map((byte) => byte.toString(16).padStart(2, "0"))
+      .join("");
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
@@ -29,6 +44,25 @@ export default function ExaminationLoginPage() {
       setError("Please enter DOB as DD/MM/YYYY format only.");
       return;
     }
+
+    if (student === undefined) {
+      setError("Checking details...");
+      return;
+    }
+
+    if (student === null) {
+      setError("Invalid roll number.");
+      return;
+    }
+
+    const hashedInput = await sha256(dob);
+
+    if (hashedInput !== student.birthdateHash) {
+      setError("Incorrect Date of Birth.");
+      return;
+    }
+
+    console.log(sha256(dob));
 
     // ✅ Save data to sessionStorage for later authentication
     sessionStorage.setItem("exam_auth", "true");

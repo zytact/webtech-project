@@ -8,6 +8,7 @@
  * @module
  */
 // biome-ignore-all lint: generated file
+// biome-ignore-all assist/source/organizeImports: generated file
 
 import {
   ActionBuilder,
